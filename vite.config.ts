@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,15 +11,15 @@ export default defineConfig({
 			formats: ['es', 'cjs'],
 			fileName: 'index',
 		},
-		sourcemap: 'hidden',
 		rollupOptions: {
 			external: ['react', 'react/jsx-runtime'],
 			output: {
+				intro: "import './style.css'",
 				banner: "'use client';",
 				interop: 'auto',
 				globals: { react: 'React' },
 			},
 		},
 	},
-	plugins: [react(), dts({ rollupTypes: true }), libInjectCss()],
+	plugins: [react(), dts({ rollupTypes: true })],
 });

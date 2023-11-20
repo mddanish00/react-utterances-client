@@ -1,8 +1,8 @@
 'use client';
+import './style.css';
 
 import * as React from 'react';
 
-import './style.css';
 import { ResizeMessage, UtterancesProps } from './types';
 
 // static variable
