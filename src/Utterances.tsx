@@ -13,6 +13,13 @@ const preferredThemeId = 'preferred-color-scheme';
 const utterancesOrigin = 'https://utteranc.es';
 const frameUrl = `${utterancesOrigin}/utterances.html`;
 
+/**
+ * Another React component for using Utterances 🔮 on your website!
+ *
+ * Created by mddanish00
+ *
+ * API: https://github.com/mddanish00/react-utterances-client/#props
+ */
 const Utterances = ({ repo, theme, label, issueNumber, issueTerm }: UtterancesProps) => {
 	const attrs = React.useMemo(() => {
 		const result: Record<string, string> = {};
