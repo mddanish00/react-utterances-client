@@ -1,6 +1,6 @@
 # react-utterances-client
 
-Another react component for using [Utterances 🔮](https://utteranc.es/) on your website!
+Another React component for using [Utterances 🔮](https://utteranc.es/) on your website!
 
 ## Wait, did we have `utterance-react-component` already? Is another component needed?
 
@@ -37,7 +37,7 @@ But if you want new features and have problems with Utterances itself, you have 
 
 TBA
 
-### Intall from repository
+### Install from repository
 
 ```bash
 npm install github:mddanish00/react-utterances-client
@@ -57,10 +57,10 @@ TBA
 
 ## License
 
-This project is licensed under [MIT license](./LICENSE).
+This project is licensed under the [MIT license](./LICENSE).
 
 ## Other License
 
-The types of the project is taken and modified from [utterance-component](https://github.com/TomokiMiyauci/utterances-component).
+The types of the project are taken and modified from [utterance-component](https://github.com/TomokiMiyauci/utterances-component).
 
-`utterances-component` is licensed under [MIT license](https://github.com/TomokiMiyauci/utterances-component/blob/main/LICENSE).
+`utterances-component` is licensed under the [MIT license](https://github.com/TomokiMiyauci/utterances-component/blob/main/LICENSE).
