@@ -3,22 +3,28 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "types": "dist/index.d.ts",
   "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsup",
     "size": "size-limit",
-    "prebuild": "npm run clean",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "clean": "rimraf dist es lib",
+    "clean": "rimraf dist",
     "format": "prettier {demo,src}/**/*.{js,jsx,ts,tsx,json} --write",
     "prepare": "npm run build"
   },
@@ -41,12 +47,17 @@
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
     "size-limit": "^11.0.0",
+    "tsup": "^8.0.1",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vite-plugin-dts": "^3.6.3"
+    "vite": "^5.0.0"
   },
   "size-limit": [
     {
+      "name": "cjs",
+      "path": "dist/index.cjs"
+    },
+    {
+      "name": "esm",
       "path": "dist/index.js"
     }
   ]
