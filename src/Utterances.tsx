@@ -5,10 +5,7 @@ import * as React from 'react';
 
 import { ResizeMessage, UtterancesProps } from './types';
 
-// static variable
-const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-	? 'github-dark'
-	: 'github-light';
+// Static variables
 const preferredThemeId = 'preferred-color-scheme';
 const utterancesOrigin = 'https://utteranc.es';
 const frameUrl = `${utterancesOrigin}/utterances.html`;
@@ -21,10 +18,20 @@ const frameUrl = `${utterancesOrigin}/utterances.html`;
  * API: https://github.com/mddanish00/react-utterances-client/#props
  */
 const Utterances = ({ repo, theme, label, issueNumber, issueTerm }: UtterancesProps) => {
-	const attrs = React.useMemo(() => {
+	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
+
+	// Only run on client-side
+	React.useEffect(() => {
 		const result: Record<string, string> = {};
 		result.repo = repo;
-		result.theme = theme === preferredThemeId ? preferredTheme : theme;
+
+		if (theme === preferredThemeId) {
+			result.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+				? 'github-dark'
+				: 'github-light';
+		} else {
+			result.theme = theme;
+		}
 
 		if (label) {
 			result.label = label;
@@ -70,8 +77,8 @@ const Utterances = ({ repo, theme, label, issueNumber, issueTerm }: UtterancesPr
 		result['og:title'] = ogtitleMeta ? ogtitleMeta.content : '';
 		result.session = session || localStorage.getItem('utterances-session') || '';
 
-		return result;
-	}, [issueNumber, issueTerm, label, repo, theme]);
+		setAttrs(result);
+	}, [repo, theme, label, issueNumber, issueTerm]);
 
 	const containerRef = React.useRef<HTMLDivElement>(null);
 
