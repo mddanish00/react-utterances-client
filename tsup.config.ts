@@ -5,9 +5,9 @@ export default defineConfig({
 	format: ['esm', 'cjs'],
 	clean: true,
 	dts: true,
-	minify: true,
 	banner: () => {
 		return { js: '"use client";' };
 	},
-    injectStyle: true
+    injectStyle: true,
+	cjsInterop: true
 });
