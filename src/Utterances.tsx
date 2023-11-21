@@ -98,15 +98,19 @@ const Utterances = ({ repo, theme, label, issueNumber, issueTerm }: UtterancesPr
 		return () => window.removeEventListener('message', resizeListener);
 	}, [resizeListener]);
 
+	const shouldLoad = React.useMemo(() => JSON.stringify(attrs) !== '{}', [attrs]);
+
 	return (
 		<div className="utterances" ref={containerRef}>
-			<iframe
-				className="utterances-frame"
-				title="Comments"
-				scrolling="no"
-				src={`${frameUrl}?${new URLSearchParams(attrs)}`}
-				loading="lazy"
-			/>
+			{shouldLoad && (
+				<iframe
+					className="utterances-frame"
+					title="Comments"
+					scrolling="no"
+					src={`${frameUrl}?${new URLSearchParams(attrs)}`}
+					loading="lazy"
+				/>
+			)}
 		</div>
 	);
 };
