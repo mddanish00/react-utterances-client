@@ -1,9 +1,8 @@
-'use client';
-import './style.css';
-
 import * as React from 'react';
 
 import { ResizeMessage, UtterancesProps } from './types';
+
+import './style.css';
 
 // Static variables
 const preferredThemeId = 'preferred-color-scheme';
