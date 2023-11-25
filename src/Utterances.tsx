@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ResizeMessage, UtterancesProps } from './types';
 
-import './style.css';
+import utterancesCSSStyle from './style.css?inline';
 
 // Static variables
 const preferredThemeId = 'preferred-color-scheme';
@@ -27,6 +27,18 @@ const Utterances = ({
 }: UtterancesProps) => {
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
+
+	// Load css style
+	React.useEffect(() => {
+		const cssStyle = document.createElement('style');
+		cssStyle.id = 'utterances-css-style';
+		cssStyle.appendChild(document.createTextNode(utterancesCSSStyle));
+		document.head.appendChild(cssStyle);
+
+		return () => {
+			document.head.removeChild(cssStyle);
+		};
+	});
 
 	// Only run on client-side
 	React.useEffect(() => {
@@ -88,6 +100,10 @@ const Utterances = ({
 		result.session = session || localStorage.getItem('utterances-session') || '';
 
 		setAttrs(result);
+
+		return () => {
+			setAttrs({});
+		};
 	}, [repo, theme, label, issueNumber, issueTerm]);
 
 	const containerRef = React.useRef<HTMLDivElement>(null);

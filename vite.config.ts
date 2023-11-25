@@ -3,7 +3,6 @@ import fs from 'fs';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +31,5 @@ export default defineConfig({
 				fs.rmSync('dist/index.d.cts.d.ts');
 			},
 		}),
-		cssInjectedByJsPlugin({ topExecutionPriority: false }),
 	],
 });
