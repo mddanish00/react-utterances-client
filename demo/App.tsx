@@ -1,5 +1,5 @@
 import React from 'react';
-import Utterances from '../dist/index.js';
+import { Utterances } from '../dist/index.js';
 
 type Theme =
 	| 'github-light'
