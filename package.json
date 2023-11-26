@@ -62,5 +62,8 @@
       "name": "esm",
       "path": "dist/index.js"
     }
-  ]
+  ],
+  "dependencies": {
+    "clsx": "^2.0.0"
+  }
 }

@@ -3,7 +3,10 @@
  * ----------------
  *
  * Some of types that used in react-utterances-client are copied and modified from utterances-react-component.
+ * 
  * The utterances-react-component is released under MIT license.
+ * 
+ * The react-utterances-client is released under MIT license.
  */
 export type UtterancesProps = {
 	/**
@@ -30,11 +33,32 @@ export type UtterancesProps = {
 	 */
 	onLoad?: () => void;
 	/**
+	 * Event callback when this component throw errors.
+	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	onError?: (e: any) => void;
+	/**
 	 * Placeholder when this component is still loading.
 	 * You can disable, or enable it with default placeholder or provide your own placeholder component.
 	 * @default false
 	 */
 	placeholder?: boolean | React.ReactElement;
+	/**
+	 * ClassName of the Utterances iframe container.
+	 */
+	containerClassName?: string;
+	/**
+	 * Style of the Utterances iframe container.
+	 */
+	containerStyle?: React.CSSProperties;
+	/**
+	 * ClassName of the Utterances iframe.
+	 */
+	iframeClassName?: string;
+	/**
+	 * Style of the Utterances iframe.
+	 */
+	iframeStyle?: React.CSSProperties;
 } & Issue;
 
 type Repo = `${string}/${string}`;

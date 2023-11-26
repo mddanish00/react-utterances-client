@@ -1,7 +1,7 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
 import { ResizeMessage, UtterancesProps } from './types';
-
 import utterancesCSSStyle from './style.css?inline';
 
 // Static variables
@@ -24,7 +24,12 @@ const Utterances = ({
 	issueTerm,
 	loading = 'lazy',
 	onLoad,
+	onError,
 	placeholder = false,
+	containerClassName,
+	containerStyle,
+	iframeClassName,
+	iframeStyle,
 }: UtterancesProps) => {
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -127,10 +132,17 @@ const Utterances = ({
 
 	const shouldLoad = React.useMemo(() => JSON.stringify(attrs) !== '{}', [attrs]);
 
-	const handleLoad = React.useCallback(() => {
+	const handleLoad: React.ReactEventHandler<HTMLIFrameElement> = React.useCallback(() => {
 		setLoaded(true);
 		if (onLoad) onLoad();
 	}, [onLoad]);
+
+	const handleError: React.ReactEventHandler<HTMLIFrameElement> = React.useCallback(
+		(e) => {
+			if (onError) onError(e);
+		},
+		[onError],
+	);
 
 	const PlaceholderComponent = React.useMemo(() => {
 		if (typeof placeholder === 'boolean') {
@@ -141,16 +153,22 @@ const Utterances = ({
 	}, [placeholder]);
 
 	return (
-		<div className="utterances" ref={containerRef}>
+		<div
+			className={clsx('utterances', containerClassName)}
+			ref={containerRef}
+			style={containerStyle}
+		>
 			{shouldLoad && (
 				<>
 					<iframe
-						className="utterances-frame"
+						className={clsx('utterances-frame', iframeClassName)}
 						title="Comments"
 						scrolling="no"
 						src={`${frameUrl}?${new URLSearchParams(attrs)}`}
 						loading={loading}
+						style={iframeStyle}
 						onLoad={handleLoad}
+						onError={handleError}
 					/>
 					{!loaded && PlaceholderComponent}
 				</>
