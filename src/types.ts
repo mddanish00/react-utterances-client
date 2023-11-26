@@ -1,25 +1,66 @@
-export interface ResizeMessage {
-	type: 'resize';
-	height: number;
-}
-// modified types from utterances-react-component
+/**
+ * Types Disclaimer
+ * ----------------
+ *
+ * Some of types that used in react-utterances-client are copied and modified from utterances-react-component.
+ * The utterances-react-component is released under MIT license.
+ */
 export type UtterancesProps = {
+	/**
+	 * Comments respository for use with this component.
+	 */
 	repo: Repo;
+	/**
+	 * Label that will be assigned to issues created by Utterances.
+	 */
 	label?: string;
+	/**
+	 * Theme that will be used by Utterances.
+	 * @default 'github-light'
+	 */
 	theme?: Theme;
-	loading?: 'eager' | 'lazy';
+	/**
+	 * Indicates when the browser should load this component.
+	 * In the case, you want to modify the default behaviour for some reason.
+	 * @default 'lazy'
+	 */
+	loading?: 'lazy' | 'eager';
+	/**
+	 * Event callback when this component finish loading.
+	 */
 	onLoad?: () => void;
+	/**
+	 * Placeholder when this component is still loading.
+	 * You can disable, or enable it with default placeholder or provide your own placeholder component.
+	 * @default false
+	 */
 	placeholder?: boolean | React.ReactElement;
 } & Issue;
 
 type Repo = `${string}/${string}`;
 type Issue =
 	| {
+			/**
+			 * Mapping the current page with term like page url, page title, OpenGraph title, page pathname or evern your own list of terms.
+			 * This prop cannot be used with issueNumber.
+			 */
 			issueTerm: Term | string[];
+			/**
+			 * Mapping the current page with specific issue number in the repository.
+			 * This prop cannot be used with issueTerm.
+			 */
 			issueNumber?: never;
 	  }
 	| {
+			/**
+			 * Mapping the current page with term like page url, page title, OpenGraph title, page pathname or evern your own list of terms.
+			 * This prop cannot be used with issueNumber.
+			 */
 			issueTerm?: never;
+			/**
+			 * Mapping the current page with specific issue number in the repository.
+			 * This prop cannot be used with issueTerm.
+			 */
 			issueNumber: number;
 	  };
 type Term = 'pathname' | 'url' | 'title' | 'og:title';
@@ -32,3 +73,8 @@ type Theme =
 	| 'dark-blue'
 	| 'photon-dark'
 	| 'boxy-light';
+
+export interface ResizeMessage {
+	type: 'resize';
+	height: number;
+}
