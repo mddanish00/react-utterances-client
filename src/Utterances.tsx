@@ -62,7 +62,8 @@ const Utterances = ({
 		}
 
 		if (issueTerm) {
-			result['issue-term'] = issueTerm;
+			if (Array.isArray(issueTerm)) result['issue-term'] = issueTerm.join(' ');
+			else result['issue-term'] = issueTerm;
 		}
 
 		const url = new URL(location.href);

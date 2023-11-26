@@ -15,7 +15,7 @@ export type UtterancesProps = {
 type Repo = `${string}/${string}`;
 type Issue =
 	| {
-			issueTerm: Term | string; //use string instead of string[]
+			issueTerm: Term | string[];
 			issueNumber?: never;
 	  }
 	| {
