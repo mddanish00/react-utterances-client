@@ -6,7 +6,7 @@ export interface ResizeMessage {
 export type UtterancesProps = {
 	repo: Repo;
 	label?: string;
-	theme: Theme;
+	theme?: Theme;
 	loading?: 'eager' | 'lazy';
 	onLoad?: () => void;
 	placeholder?: boolean | React.ReactElement;

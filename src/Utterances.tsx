@@ -18,7 +18,7 @@ const frameUrl = `${utterancesOrigin}/utterances.html`;
  */
 const Utterances = ({
 	repo,
-	theme,
+	theme = 'github-light',
 	label,
 	issueNumber,
 	issueTerm,
