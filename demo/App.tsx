@@ -9,7 +9,8 @@ type Theme =
 	| 'icy-dark'
 	| 'dark-blue'
 	| 'photon-dark'
-	| 'boxy-light';
+	| 'boxy-light'
+	| 'gruvbox-dark';
 
 const themeList: Theme[] = [
 	'github-light',

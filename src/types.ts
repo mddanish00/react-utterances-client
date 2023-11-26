@@ -96,7 +96,8 @@ type Theme =
 	| 'icy-dark'
 	| 'dark-blue'
 	| 'photon-dark'
-	| 'boxy-light';
+	| 'boxy-light'
+	| 'gruvbox-dark';
 
 export interface ResizeMessage {
 	type: 'resize';
