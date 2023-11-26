@@ -22,6 +22,7 @@ const Utterances = ({
 	label,
 	issueNumber,
 	issueTerm,
+	loading = 'lazy',
 	onLoad,
 	placeholder = true,
 }: UtterancesProps) => {
@@ -147,7 +148,7 @@ const Utterances = ({
 						title="Comments"
 						scrolling="no"
 						src={`${frameUrl}?${new URLSearchParams(attrs)}`}
-						loading="lazy"
+						loading={loading}
 						onLoad={handleLoad}
 					/>
 					{!loaded && PlaceholderComponent}

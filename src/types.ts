@@ -7,6 +7,7 @@ export type UtterancesProps = {
 	repo: Repo;
 	label?: string;
 	theme: Theme;
+	loading?: 'eager' | 'lazy';
 	onLoad?: () => void;
 	placeholder?: boolean | React.ReactElement;
 } & Issue;
