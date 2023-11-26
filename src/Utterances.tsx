@@ -28,17 +28,16 @@ const Utterances = ({
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
 
-	// Load css style
+	// Load CSS style
 	React.useEffect(() => {
 		const cssStyle = document.createElement('style');
-		cssStyle.id = 'utterances-css-style';
 		cssStyle.appendChild(document.createTextNode(utterancesCSSStyle));
 		document.head.appendChild(cssStyle);
 
 		return () => {
 			document.head.removeChild(cssStyle);
 		};
-	});
+	}, []);
 
 	// Only run on client-side
 	React.useEffect(() => {
