@@ -24,7 +24,7 @@ const Utterances = ({
 	issueTerm,
 	loading = 'lazy',
 	onLoad,
-	placeholder = true,
+	placeholder = false,
 }: UtterancesProps) => {
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
