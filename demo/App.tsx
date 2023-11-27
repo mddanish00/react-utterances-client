@@ -1,5 +1,5 @@
 import React from 'react';
-import { Utterances } from '../dist/index.js';
+import { Utterances } from '../src/index.ts';
 
 type Theme =
 	| 'github-light'
@@ -21,6 +21,7 @@ const themeList: Theme[] = [
 	'dark-blue',
 	'photon-dark',
 	'boxy-light',
+	'gruvbox-dark',
 ];
 
 const App = () => {
