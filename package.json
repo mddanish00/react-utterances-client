@@ -64,6 +64,6 @@
     }
   ],
   "dependencies": {
-    "clsx": "^2.0.0"
+    "classcat": "^5.0.4"
   }
 }

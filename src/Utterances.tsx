@@ -1,5 +1,5 @@
 import * as React from 'react';
-import clsx from 'clsx';
+import cc from 'classcat';
 
 import { ResizeMessage, UtterancesProps } from './types';
 import utterancesCSSStyle from './style.css?inline';
@@ -154,14 +154,14 @@ const Utterances = ({
 
 	return (
 		<div
-			className={clsx('utterances', containerClassName)}
+			className={cc(['utterances', containerClassName])}
 			ref={containerRef}
 			style={containerStyle}
 		>
 			{shouldLoad && (
 				<>
 					<iframe
-						className={clsx('utterances-frame', iframeClassName)}
+						className={cc(['utterances-frame', iframeClassName])}
 						title="Comments"
 						scrolling="no"
 						src={`${frameUrl}?${new URLSearchParams(attrs)}`}
