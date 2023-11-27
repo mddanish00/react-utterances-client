@@ -132,16 +132,12 @@ const Utterances = ({
 
 	const shouldLoad = React.useMemo(() => JSON.stringify(attrs) !== '{}', [attrs]);
 
-	const handleLoad: React.ReactEventHandler<HTMLIFrameElement> = React.useCallback(() => {
-		setLoaded(true);
-		if (onLoad) onLoad();
-	}, [onLoad]);
-
-	const handleError: React.ReactEventHandler<HTMLIFrameElement> = React.useCallback(
+	const handleLoad: React.ReactEventHandler<HTMLIFrameElement> = React.useCallback(
 		(e) => {
-			if (onError) onError(e);
+			setLoaded(true);
+			if (onLoad) onLoad(e);
 		},
-		[onError],
+		[onLoad],
 	);
 
 	const PlaceholderComponent = React.useMemo(() => {
@@ -168,7 +164,7 @@ const Utterances = ({
 						loading={loading}
 						style={iframeStyle}
 						onLoad={handleLoad}
-						onError={handleError}
+						onError={onError}
 					/>
 					{!loaded && PlaceholderComponent}
 				</>

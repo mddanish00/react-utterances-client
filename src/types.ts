@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Types Disclaimer
  * ----------------
@@ -31,11 +32,10 @@ export type UtterancesProps = {
 	/**
 	 * Event callback when this component finish loading.
 	 */
-	onLoad?: () => void;
+	onLoad?: (e: any) => void;
 	/**
 	 * Event callback when this component throw errors.
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	onError?: (e: any) => void;
 	/**
 	 * Placeholder when this component is still loading.
