@@ -6,6 +6,8 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/mddanish00/react-utterances-client?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
+[Comments Demo](https://mdddanish00.github.com/react-utterances-client/)
+
 ## Features
 
 - Rewritten `client.js` code using React API directly in the component.
@@ -98,7 +100,15 @@ const Comments = () => {
 };
 ```
 
-You just need to specify your repository that you will be using its issues for comments, optionally specify your theme (default: `github-light`), and decide on issue mapping with your current page.
+You just need to specify the repository that you will be using its issues for comments.
+
+The repository you want to use must:
+
+- The repository is set to Public.
+- The [utterances app](https://github.com/apps/utterances) is installed on the repository.
+- Make sure Issues is turned on if your repository is a fork.
+
+After that, you can specify your theme or just omit `theme` prop to use the default theme and decide on issue mapping with your current page.
 
 For this, it is better to read `Blog Post ↔️ Issue Mapping` on the official [site](https://utteranc.es/) for a more details explanation of the options.
 
@@ -243,15 +253,15 @@ Also, consider buying me a coffee!
 
 ## Plan
 
-I will implement everything that `client.js` can do and also any future updates for `client.js`. I also will consider any suggestions that will improve the component itself.
-
-First, we need to break down what `client.js` does.
+We need to break down what `client.js` does.
 
 - Processing the provided props
 - Collect attributes from the page that the script loaded from
 - And, finally, construct the URL based on those information and load iframe with that URL.
 
 As the name implies, the `client.js` is just a client. And so is this component.
+
+I will implement everything that `client.js` can do and also any future updates for `client.js`. I also will consider any suggestions that will improve the component itself.
 
 I can fix it if something is wrong with the client functions above.
 
