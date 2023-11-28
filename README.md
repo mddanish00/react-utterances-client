@@ -32,6 +32,7 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
     - [Customization](#customization)
       - [Theme](#theme)
       - [ClassName and Style](#classname-and-style)
+      - [Types](#types)
   - [Props](#props)
   - [Like this project?](#like-this-project)
   - [Plan](#plan)
@@ -40,7 +41,9 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 
 ## Wait, did we have `utterance-react-component` already? Is another component needed?
 
-That component loads the script `https://utteranc.es/client.js` and passes the props to that script. The problem is the component will have the same bugs as `client.js` and at the point I am writing this still exists.
+My main motivation is to resolve the bug that I encountered when using `utterance-react-component`.
+
+`utterance-react-component` loads the script `https://utteranc.es/client.js` and passes the props to that script. The problem is the component will have the same bugs as `client.js` and at the point I am writing this still exists.
 
 Refer to [utterances issue #624][utterances-i#624] and [utterances-component issue #393][utterances-component-i#393].
 
@@ -203,6 +206,14 @@ Or, pass Bootstrap classes like `text-light` or `bg-primary` to `containerClassN
 Or, you Emotion `css` function and pass the generated className to the `containerClassName` prop.
 
 Go wild!
+
+#### Types
+
+```jsx
+import { Utterances, UtterancesProps } from 'react-utterances-client';
+```
+
+Types of `Utterances` component props also accessable via `UtteranceProps` if you want to use it for some reason.
 
 ## Props
 
