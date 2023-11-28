@@ -2,6 +2,10 @@
 
 Another React component for using [Utterances](https://utteranc.es/) 🔮 on your website!
 
+![GitHub License](https://img.shields.io/github/license/mddanish00/react-utterances-client?style=flat-square)
+![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/mddanish00/react-utterances-client?style=flat-square)
+![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)
+
 ## Features
 
 - Rewritten `client.js` code using React API directly in the component.
