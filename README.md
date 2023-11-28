@@ -7,7 +7,7 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
-[Comments Demo](https://mdddanish00.github.com/react-utterances-client/)
+[Comments Demo](https://mddanish00.github.io/react-utterances-client/)
 
 ## Features
 
@@ -204,11 +204,11 @@ List of themes that are available for use with Utterances:
 
 For `preferred color scheme`, it will depend on your OS's dark mode settings. If disabled, `github-light`. If enabled, `github-dark`.
 
-You can see the Theme preview on the official [site](https://utteranc.es/).
+You can see the Theme preview on the official [site](https://utteranc.es/). Also, available in [Comments Demo](https://mddanish00.github.io/react-utterances-client/).
 
 #### ClassName and Style
 
-This component exposes the `className` prop and `style` prop for both Container div (`containerClassName`, `containerStyle`) and iframe (`iframeClassName`, `iframeStyle`). This open up the possibility when customizing the appearance of the component.
+This component exposes the `className` prop and `style` prop for both Container div (`containerClassName`, `containerStyle`) and iframe (`iframeClassName`, `iframeStyle`). This opens up the possibility when customizing the appearance of the component.
 
 For example, you can use the `containerStyle` prop to customize the container background.
 
@@ -224,7 +224,7 @@ Go wild!
 import { Utterances, UtterancesProps } from 'react-utterances-client';
 ```
 
-Types of `Utterances` component props also accessable via `UtteranceProps` if you want to use it for some reason.
+Types of `Utterances` component props are also accessible via `UtteranceProps` if you want to use it for some reason.
 
 ## Props
 
@@ -233,12 +233,12 @@ Types of `Utterances` component props also accessable via `UtteranceProps` if yo
 |repo|`${string}/${string}`|required|Comments respository for use with this component.|
 |label|string|`""`|Label that will be assigned to issues created by Utterances.|
 |theme|[Theme](#theme)|`github-light`|Theme that will be used by Utterances.|
-|issueTerm|[Term](#basic-usage) or string[]|required if issueNumber `undefined`|Mapping the current page with term like page url, page title, OpenGraph title, page pathname or evern your own list of terms. This prop cannot be used with issueNumber.|
-|issueNumber|number|required if issueTerm `undefined`|Mapping the current page with specific issue number in the repository. This prop cannot be used with issueTerm.|
-|loading|lazy or eager|`lazy`|Indicates when the browser should load this component. In the case, you want to modify the default behaviour for some reason.|
+|issueTerm|[Term](#basic-usage) or string[]|required if issueNumber `undefined`|Mapping the current page with terms like page URL, page title, OpenGraph title, page pathname or even your own list of terms. This prop cannot be used with issueNumber.|
+|issueNumber|number|required if issueTerm `undefined`|Mapping the current page with a specific issue number in the repository. This prop cannot be used with issueTerm.|
+|loading|lazy or eager|`lazy`|Indicates when the browser should load this component. In this case, you want to modify the default behaviour for some reason.|
 |onLoad|(e) => void|`undefined`|Event callback when this component finish loading.|
 |onError|(e) => void|`undefined`|Event callback when this component throw errors.|
-|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with default placeholder or provide your own placeholder component.|
+|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component.|
 |containerClassName|string|`undefined`|ClassName of the Utterances iframe container.|
 |iframeClassName|string|`undefined`|ClassName of the Utterances iframe.|
 |containerStyle|React.CSSProperties|`{}`|Style of the Utterances iframe container.|
