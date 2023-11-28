@@ -63,7 +63,7 @@ const App = () => {
 				</select>
 			</div>
 			<Utterances
-				repo="mddanish00/mddanish00-devblog-comments"
+				repo="mddanish00/react-utterances-client"
 				theme={selectedTheme}
 				issueTerm="title"
 			/>
