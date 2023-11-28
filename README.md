@@ -4,7 +4,7 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 
 ![GitHub License](https://img.shields.io/github/license/mddanish00/react-utterances-client?style=flat-square)
 ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/mddanish00/react-utterances-client?style=flat-square)
-![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)
+[![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
 ## Features
 
@@ -176,7 +176,7 @@ const Comments = () => {
 
 #### Theme
 
-List of themes that available for use with Utterances:
+List of themes that are available for use with Utterances:
 
 - github-light
 - github-dark
@@ -190,15 +190,17 @@ List of themes that available for use with Utterances:
 
 For `preferred color scheme`, it will depend on your OS's dark mode settings. If disabled, `github-light`. If enabled, `github-dark`.
 
+You can see the Theme preview on the official [site](https://utteranc.es/).
+
 #### ClassName and Style
 
-This component exposes `className` prop and `style` prop for both Container div (`containerClassName`, `containerStyle`) and iframe (`iframeClassName`, `iframeStyle`).This open up possibility when customizing the appearance of the component.
+This component exposes the `className` prop and `style` prop for both Container div (`containerClassName`, `containerStyle`) and iframe (`iframeClassName`, `iframeStyle`). This open up the possibility when customizing the appearance of the component.
 
-For example, you can use `containerStyle` prop to customize container background.
+For example, you can use the `containerStyle` prop to customize the container background.
 
 Or, pass Bootstrap classes like `text-light` or `bg-primary` to `containerClassName` prop.
 
-Or, you Emotion `css` function and pass the generated className to `containerClassName` prop.
+Or, you Emotion `css` function and pass the generated className to the `containerClassName` prop.
 
 Go wild!
 
