@@ -1,22 +1,26 @@
 name: Deploy to Github Pages
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
 permissions:
-    contents: write
+  contents: write
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-        
+
       - name: Set Node Environment
         uses: actions/setup-node@v4
         with:
-             node-version: 'lts/*'
-             
+          node-version: 'lts/*'
+
       - name: Update npm latest
         run: |
-          npm install -g npm@latest 
+          npm install -g npm@latest
 
       - name: Install and Build 🔧
         env:
@@ -26,7 +30,7 @@ jobs:
           echo npm version "$(npm --version)"
           npm install
           npm run build:demo
-      
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
