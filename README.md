@@ -100,7 +100,7 @@ const Comments = () => {
 
 You just need to specify your repository that you will be using its issues for comments, optionally specify your theme (default: `github-light`), and decide on issue mapping with your current page.
 
-For this, it is better to read `Blog Post ↔️ Issue Mapping` on the [official [site](https://utteranc.es/) for a more details explanation of the options.
+For this, it is better to read `Blog Post ↔️ Issue Mapping` on the official [site](https://utteranc.es/) for a more details explanation of the options.
 
 You can only use one of the below props for this:
 
@@ -267,4 +267,4 @@ Some of the functions in this library are based on the original [client.ts](http
 
 The types of the project are taken and modified from [TomokiMiyauci/utterance-component](https://github.com/TomokiMiyauci/utterances-component) repository that is licensed under the [MIT license](https://github.com/TomokiMiyauci/utterances-component/blob/main/LICENSE).
 
-Icon SVG that is used as the demo icon, 🔮 is a part of the [googlefonts](https://github.com/googlefonts/noto-emoji)[/noto-emoji](https://github.com/googlefonts/noto-emoji)](<https://github.com/googlefonts/noto-emoji>) project that is licensed under the [Apache License 2.0](https://github.com/googlefonts/noto-emoji/blob/main/LICENSE).
+Icon SVG that is used as the demo icon, 🔮 is a part of the [googlefonts](https://github.com/googlefonts/noto-emoji)[/noto-emoji](https://github.com/googlefonts/noto-emoji)(<https://github.com/googlefonts/noto-emoji>) project that is licensed under the [Apache License 2.0](https://github.com/googlefonts/noto-emoji/blob/main/LICENSE).
