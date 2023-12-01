@@ -120,6 +120,8 @@ You can only use one of the below props for this:
 
 ### Placeholder
 
+> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
+
 ```jsx
 import { Utterances } from 'react-utterances-client';
 
@@ -134,9 +136,9 @@ const Comments = () => {
 };
 ```
 
-> This feature need more feedback from the users. It may be removed in later versions.
-
 Placeholder is a component that will display when the Utterances component is loading. You need to enable this feature explicitly to use it. You can even provide your own Placeholder Component through `placeholder` prop.
+
+> This prop will set `loading` prop to `eager` regardless what you set.
 
 ### Event Handler
 
@@ -238,7 +240,7 @@ Types of `Utterances` component props are also accessible via `UtteranceProps` i
 |loading|lazy or eager|`lazy`|Indicates when the browser should load this component. In this case, you want to modify the default behaviour for some reason.|
 |onLoad|(e) => void|`undefined`|Event callback when this component finish loading.|
 |onError|(e) => void|`undefined`|Event callback when this component throw errors.|
-|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component.|
+|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component. This also will force loading prop to eager regardless what you set.|
 |containerClassName|string|`undefined`|ClassName of the Utterances iframe container.|
 |iframeClassName|string|`undefined`|ClassName of the Utterances iframe.|
 |containerStyle|React.CSSProperties|`{}`|Style of the Utterances iframe container.|

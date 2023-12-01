@@ -161,8 +161,8 @@ const Utterances = ({
 						title="Comments"
 						scrolling="no"
 						src={`${frameUrl}?${new URLSearchParams(attrs)}`}
-						loading={loading}
-						style={iframeStyle}
+						loading={!placeholder ? loading : 'eager'}
+						style={{ display: !loaded && placeholder ? 'none' : 'block', ...iframeStyle }}
 						onLoad={handleLoad}
 						onError={onError}
 					/>
