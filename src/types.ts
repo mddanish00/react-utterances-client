@@ -38,9 +38,16 @@ export type UtterancesProps = {
 	 */
 	onError?: (e: any) => void;
 	/**
+	 * Place you want to keep your token.
+	 *
+	 * 'session' to sessionStorage, 'local' to LocalStorage
+	 * @default 'local'
+	 */
+	tokenStorage?: 'local' | 'session';
+	/**
 	 * Placeholder when this component is still loading.
 	 * You can disable, or enable it with default placeholder or provide your own placeholder component.
-	 * This also will force loading prop to eager regardless what you set.
+	 * This also will force loading prop to 'eager' regardless what you set.
 	 * @default false
 	 */
 	placeholder?: boolean | React.ReactElement;

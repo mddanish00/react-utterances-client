@@ -30,8 +30,9 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
     - [Install from repository](#install-from-repository)
   - [Usage](#usage)
     - [Basic Usage](#basic-usage)
-    - [Placeholder](#placeholder)
     - [Event Handler](#event-handler)
+    - [Token Storage](#token-storage)
+    - [Placeholder](#placeholder)
     - [Customization](#customization)
       - [Theme](#theme)
       - [ClassName and Style](#classname-and-style)
@@ -118,28 +119,6 @@ You can only use one of the below props for this:
 - For `pathname`, `url`, `title`, `og:title` or specific terms, you need to use `issueTerm` prop.
 - For `issueNumber`, you need to provide the issue number to `issueNumber` prop.
 
-### Placeholder
-
-> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
-
-```jsx
-import { Utterances } from 'react-utterances-client';
-
-const Comments = () => {
- return (
-        <Utterances
-           repo="people/example-project"
-           issueTerm="title"
-           placeholder={true}
-        />
- );
-};
-```
-
-Placeholder is a component that will display when the Utterances component is loading. You need to enable this feature explicitly to use it. You can even provide your own Placeholder Component through `placeholder` prop.
-
-> This prop will set `loading` prop to `eager` regardless what you set.
-
 ### Event Handler
 
 ```jsx
@@ -171,6 +150,75 @@ Only two event handlers can be used right now:
 This will be attached to the iframe `onLoad` and `onError`.
 
 The `e` will be passed down to the event handler.
+
+### Token Storage
+
+> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <Utterances
+           repo="people/example-project"
+           issueTerm="title"
+           tokenStorage="session"
+        />
+ );
+};
+```
+
+Every time the user logs in to their GitHub account on the Utterances site, this component will keep the token in the redirected URL into localStorage. The problem with this is the Utterances don't provide anyway to logged out of the account from the site.
+
+Also, based on my reading on the Utterances project code, the token has 1 year expiry date.
+
+So, I added an option to keep the token in SessionStorage instead. LocalStorage will survive when the site or tab closes but SessionStorage will auto-delete them. This is a better aproach in my opinion.
+
+The component will still set the storage to LocalStorage by default.
+
+> You should create a way for the user to clear Login data like a button. Like this.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <> 
+           <button onClick={()=>sessionStorage.removeItem('utterances-session')}>
+              Clear Login Data
+           </button>
+           <Utterances
+              repo="people/example-project"
+              issueTerm="title"
+              tokenStorage="session"
+           />
+        </>
+ );
+};
+```
+
+### Placeholder
+
+> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <Utterances
+           repo="people/example-project"
+           issueTerm="title"
+           placeholder={true}
+        />
+ );
+};
+```
+
+Placeholder is a component that will display when the Utterances component is loading. You need to enable this feature explicitly to use it. You can even provide your own Placeholder Component through `placeholder` prop.
+
+> This prop will set `loading` prop to `eager` regardless what you set.
 
 ### Customization
 

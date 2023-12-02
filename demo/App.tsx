@@ -66,6 +66,7 @@ const App = () => {
 				repo="mddanish00/react-utterances-client"
 				theme={selectedTheme}
 				issueTerm="title"
+				tokenStorage="session"
 			/>
 		</div>
 	);
