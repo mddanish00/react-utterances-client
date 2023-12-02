@@ -3,6 +3,7 @@ import cc from 'classcat';
 
 import { ResizeMessage, UtterancesProps } from './types';
 import utterancesCSSStyle from './style.css?inline';
+import { useUtterancesSession } from './hooks';
 
 // Static variables
 const preferredThemeId = 'preferred-color-scheme';
@@ -22,6 +23,7 @@ const Utterances = ({
 	label,
 	issueNumber,
 	issueTerm,
+	tokenStorage = 'local',
 	loading = 'lazy',
 	onLoad,
 	onError,
@@ -33,6 +35,9 @@ const Utterances = ({
 }: UtterancesProps) => {
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
+	const [sessionToken, setSessionToken] = useUtterancesSession(
+		tokenStorage === 'session' ? sessionStorage : localStorage,
+	);
 
 	// Load CSS style
 	React.useEffect(() => {
@@ -75,7 +80,7 @@ const Utterances = ({
 
 		const session = url.searchParams.get('utterances');
 		if (session) {
-			localStorage.setItem('utterances-session', session);
+			setSessionToken(session);
 			url.searchParams.delete('utterances');
 			history.replaceState(undefined, document.title, url.href);
 		}
@@ -102,15 +107,14 @@ const Utterances = ({
 			`meta[property='og:title'],meta[name='og:title']`,
 		) as HTMLMetaElement;
 		result['og:title'] = ogtitleMeta ? ogtitleMeta.content : '';
-
-		result.session = session || localStorage.getItem('utterances-session') || '';
+		result.session = session || sessionToken || '';
 
 		setAttrs(result);
 
 		return () => {
 			setAttrs({});
 		};
-	}, [repo, theme, label, issueNumber, issueTerm]);
+	}, [repo, theme, label, issueNumber, issueTerm, tokenStorage, sessionToken, setSessionToken]);
 
 	const containerRef = React.useRef<HTMLDivElement>(null);
 
