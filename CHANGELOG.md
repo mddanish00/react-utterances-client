@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mddanish00/react-utterances-client/compare/v1.1.0...v1.1.1) (2023-12-03)
+
+
+### Bug Fixes
+
+* externalize deps ([9879623](https://github.com/mddanish00/react-utterances-client/commit/98796231f2ee3d66e723aa53c6c785b63cb2ba6c))
+
 ## [1.1.0](https://github.com/mddanish00/react-utterances-client/compare/v1.0.2...v1.1.0) (2023-12-03)
 
 
