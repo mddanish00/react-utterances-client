@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0](https://github.com/mddanish00/react-utterances-client/compare/v1.0.2...v1.1.0) (2023-12-03)
+
+
+### Features
+
+* add tokenStorage to define where to keep the token ([5c8170a](https://github.com/mddanish00/react-utterances-client/commit/5c8170a50994692ec2caf7895d8aacd554b638aa))
+* add use-sync-external-store shim ([5c8170a](https://github.com/mddanish00/react-utterances-client/commit/5c8170a50994692ec2caf7895d8aacd554b638aa))
+* force loading to eager if placeholder used ([5c8170a](https://github.com/mddanish00/react-utterances-client/commit/5c8170a50994692ec2caf7895d8aacd554b638aa))
+
 ## [1.0.2](https://github.com/mddanish00/react-utterances-client/compare/v1.0.1...v1.0.2) (2023-11-28)
 
 
