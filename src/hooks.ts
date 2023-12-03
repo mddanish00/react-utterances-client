@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
+import { useSyncExternalStore } from 'use-sync-external-store';
 
 function dispatchStorageEvent(key: string, newValue?: string) {
 	window.dispatchEvent(new StorageEvent('storage', { key, newValue }));
@@ -45,11 +46,7 @@ export function useUtterancesSession(
 	const key = 'utterances-session';
 	const getSnapshot = () => getStorageItem(getStorageType(type), key);
 
-	const token = React.useSyncExternalStore(
-		useStorageSubscribe,
-		getSnapshot,
-		getStorageServerSnapshot,
-	);
+	const token = useSyncExternalStore(useStorageSubscribe, getSnapshot, getStorageServerSnapshot);
 
 	const setState: React.Dispatch<React.SetStateAction<string>> = React.useCallback(
 		(v) => {
