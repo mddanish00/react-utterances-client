@@ -4,7 +4,7 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 
 ![GitHub License](https://img.shields.io/github/license/mddanish00/react-utterances-client?style=flat-square)
 ![npm](https://img.shields.io/npm/v/react-utterances-client?style=flat-square)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client?style=flat-square)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client%40latest?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
 [Comments Demo](https://mddanish00.github.io/react-utterances-client/)
