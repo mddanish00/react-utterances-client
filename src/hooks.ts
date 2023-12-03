@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
-import { useSyncExternalStore } from 'use-sync-external-store';
+import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 function dispatchStorageEvent(key: string, newValue?: string) {
 	window.dispatchEvent(new StorageEvent('storage', { key, newValue }));
