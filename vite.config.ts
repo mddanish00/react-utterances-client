@@ -14,7 +14,7 @@ export default defineConfig({
 			fileName: 'index',
 		},
 		rollupOptions: {
-			external: ['react', 'react/jsx-runtime'],
+			external: ['react', 'react/jsx-runtime', 'classcat', 'use-sync-external-store/shim'],
 			output: {
 				banner: "'use client';",
 				interop: 'auto',
