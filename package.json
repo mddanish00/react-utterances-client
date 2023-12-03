@@ -73,7 +73,10 @@
   "author": "mddanish00",
   "homepage": "https://mddanish00.github.io/react-utterances-client",
   "license": "MIT",
-  "repository": "https://github.com/mddanish00/react-utterances-client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mddanish00/react-utterances-client.git"
+  },
   "keywords": [
     "utterances",
     "utterances component",
