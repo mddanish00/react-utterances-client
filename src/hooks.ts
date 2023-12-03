@@ -31,12 +31,16 @@ const getStorageServerSnapshot = () => {
 	return 'SSR_NO_TOKEN';
 };
 
+const getStorageType = (type: 'session' | 'local') => {
+	return type === 'session' ? window.sessionStorage : window.localStorage;
+};
+
 export function useUtterancesSession(
-	type: Storage,
+	type: 'session' | 'local',
 ): [string, React.Dispatch<React.SetStateAction<string>>] {
 	const key = 'utterances-session';
 	const initialValue = 'INITIAL';
-	const getSnapshot = () => getStorageItem(type, key);
+	const getSnapshot = () => getStorageItem(getStorageType(type), key);
 
 	const token = React.useSyncExternalStore(
 		useStorageSubscribe,
@@ -50,9 +54,9 @@ export function useUtterancesSession(
 				const nextState = typeof v === 'function' ? v(token || '') : v;
 
 				if (nextState === undefined || nextState === null) {
-					removeStorageItem(type, key);
+					removeStorageItem(getStorageType(type), key);
 				} else {
-					setStorageItem(type, key, nextState);
+					setStorageItem(getStorageType(type), key, nextState);
 				}
 			} catch (e) {
 				console.warn(e);
@@ -62,8 +66,8 @@ export function useUtterancesSession(
 	);
 
 	React.useEffect(() => {
-		if (getStorageItem(type, key) === null) {
-			setStorageItem(type, key, initialValue);
+		if (getStorageItem(getStorageType(type), key) === null) {
+			setStorageItem(getStorageType(type), key, initialValue);
 		}
 	}, [key, type]);
 

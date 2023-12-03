@@ -35,9 +35,7 @@ const Utterances = ({
 }: UtterancesProps) => {
 	const [attrs, setAttrs] = React.useState<Record<string, string>>({});
 	const [loaded, setLoaded] = React.useState<boolean>(false);
-	const [sessionToken, setSessionToken] = useUtterancesSession(
-		tokenStorage === 'session' ? sessionStorage : localStorage,
-	);
+	const [sessionToken, setSessionToken] = useUtterancesSession(tokenStorage);
 
 	// Load CSS style
 	React.useEffect(() => {
