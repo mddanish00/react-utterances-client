@@ -4,9 +4,9 @@
  * ----------------
  *
  * Some of types that used in react-utterances-client are copied and modified from utterances-react-component.
- * 
+ *
  * The utterances-react-component is released under MIT license.
- * 
+ *
  * The react-utterances-client is released under MIT license.
  */
 export type UtterancesProps = {
@@ -38,8 +38,16 @@ export type UtterancesProps = {
 	 */
 	onError?: (e: any) => void;
 	/**
+	 * Browser Storage that you want to use to keep your token.
+	 *
+	 * 'session' to sessionStorage, 'local' to LocalStorage.
+	 * @default 'local'
+	 */
+	tokenStorage?: 'local' | 'session';
+	/**
 	 * Placeholder when this component is still loading.
 	 * You can disable, or enable it with default placeholder or provide your own placeholder component.
+	 * This also will force loading prop to 'eager' regardless what you set.
 	 * @default false
 	 */
 	placeholder?: boolean | React.ReactElement;

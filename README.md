@@ -3,7 +3,7 @@
 Another React component for using [Utterances](https://utteranc.es/) 🔮 on your website!
 
 ![GitHub License](https://img.shields.io/github/license/mddanish00/react-utterances-client?style=flat-square)
-![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/mddanish00/react-utterances-client?style=flat-square)
+![npm](https://img.shields.io/npm/v/react-utterances-client?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
@@ -30,8 +30,9 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
     - [Install from repository](#install-from-repository)
   - [Usage](#usage)
     - [Basic Usage](#basic-usage)
-    - [Placeholder](#placeholder)
     - [Event Handler](#event-handler)
+    - [Token Storage](#token-storage)
+    - [Placeholder](#placeholder)
     - [Customization](#customization)
       - [Theme](#theme)
       - [ClassName and Style](#classname-and-style)
@@ -118,26 +119,6 @@ You can only use one of the below props for this:
 - For `pathname`, `url`, `title`, `og:title` or specific terms, you need to use `issueTerm` prop.
 - For `issueNumber`, you need to provide the issue number to `issueNumber` prop.
 
-### Placeholder
-
-```jsx
-import { Utterances } from 'react-utterances-client';
-
-const Comments = () => {
- return (
-        <Utterances
-           repo="people/example-project"
-           issueTerm="title"
-           placeholder={true}
-        />
- );
-};
-```
-
-> This feature need more feedback from the users. It may be removed in later versions.
-
-Placeholder is a component that will display when the Utterances component is loading. You need to enable this feature explicitly to use it. You can even provide your own Placeholder Component through `placeholder` prop.
-
 ### Event Handler
 
 ```jsx
@@ -169,6 +150,75 @@ Only two event handlers can be used right now:
 This will be attached to the iframe `onLoad` and `onError`.
 
 The `e` will be passed down to the event handler.
+
+### Token Storage
+
+> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <Utterances
+           repo="people/example-project"
+           issueTerm="title"
+           tokenStorage="session"
+        />
+ );
+};
+```
+
+Every time the user logs in to their GitHub account on the Utterances site, this component will keep the token in the redirected URL into localStorage. The problem with this is the Utterances don't provide any way to log out of the account from the site.
+
+Also, based on my reading on the Utterances project code, the token has a 1-year expiry date.
+
+So, I added an option to keep the token in SessionStorage instead. LocalStorage will survive when the site or tab closes but SessionStorage will auto-delete them. This is a better approach in my opinion.
+
+The component will still set the storage to LocalStorage by default.
+
+> Recommended to create a way for the user to clear Login data like a button. Like this.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <> 
+           <button onClick={()=>localStorage.removeItem('utterances-session')}>
+              Clear Login Data
+           </button>
+           <Utterances
+              repo="people/example-project"
+              issueTerm="title"
+              tokenStorage="session"
+           />
+        </>
+ );
+};
+```
+
+### Placeholder
+
+> This feature is experimental. It need more feedback from the users. It may be removed in later versions.
+
+```jsx
+import { Utterances } from 'react-utterances-client';
+
+const Comments = () => {
+ return (
+        <Utterances
+           repo="people/example-project"
+           issueTerm="title"
+           placeholder={true}
+        />
+ );
+};
+```
+
+Placeholder is a component that will display when the Utterances component is loading. You need to enable this feature explicitly to use it. You can even provide your own Placeholder Component through `placeholder` prop.
+
+> This prop will set `loading` prop to `eager` regardless what you set.
 
 ### Customization
 
@@ -238,7 +288,8 @@ Types of `Utterances` component props are also accessible via `UtteranceProps` i
 |loading|lazy or eager|`lazy`|Indicates when the browser should load this component. In this case, you want to modify the default behaviour for some reason.|
 |onLoad|(e) => void|`undefined`|Event callback when this component finish loading.|
 |onError|(e) => void|`undefined`|Event callback when this component throw errors.|
-|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component.|
+|tokenStorage|`local` or `session`|`local`|Browser Storage that you want to use to keep your token. `session` to sessionStorage, `local` to LocalStorage.|
+|placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component. This also will force loading prop to eager regardless what you set.|
 |containerClassName|string|`undefined`|ClassName of the Utterances iframe container.|
 |iframeClassName|string|`undefined`|ClassName of the Utterances iframe.|
 |containerStyle|React.CSSProperties|`{}`|Style of the Utterances iframe container.|
@@ -279,3 +330,5 @@ Some of the functions in this library are based on the original [client.ts](http
 The types of the project are taken and modified from [TomokiMiyauci/utterance-component](https://github.com/TomokiMiyauci/utterances-component) repository that is licensed under the [MIT license](https://github.com/TomokiMiyauci/utterances-component/blob/main/LICENSE).
 
 Icon SVG that is used as the demo icon, 🔮 is a part of the [googlefonts](https://github.com/googlefonts/noto-emoji)[/noto-emoji](https://github.com/googlefonts/noto-emoji)(<https://github.com/googlefonts/noto-emoji>) project that is licensed under the [Apache License 2.0](https://github.com/googlefonts/noto-emoji/blob/main/LICENSE).
+
+The dev-only hook, `useUtterancesSession` is based on `useLocalStorage` and `useSessionStorage` hooks from @uidotdev/usehooks project that is licensed under the [MIT license](https://github.com/uidotdev/usehooks/blob/main/LICENSE).
