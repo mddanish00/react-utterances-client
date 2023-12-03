@@ -35,6 +35,10 @@ const getStorageType = (type: 'session' | 'local') => {
 	return type === 'session' ? window.sessionStorage : window.localStorage;
 };
 
+/**
+ * Based on @uidotdev/usehooks's useLocalStorage and useSessionStorage hooks.
+ * @uidotdev/usehooks project licensed under MIT license.
+ */
 export function useUtterancesSession(
 	type: 'session' | 'local',
 ): [string, React.Dispatch<React.SetStateAction<string>>] {

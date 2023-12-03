@@ -38,9 +38,9 @@ export type UtterancesProps = {
 	 */
 	onError?: (e: any) => void;
 	/**
-	 * Place you want to keep your token.
+	 * Browser Storage that you want to use to keep your token.
 	 *
-	 * 'session' to sessionStorage, 'local' to LocalStorage
+	 * 'session' to sessionStorage, 'local' to LocalStorage.
 	 * @default 'local'
 	 */
 	tokenStorage?: 'local' | 'session';

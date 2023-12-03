@@ -169,15 +169,15 @@ const Comments = () => {
 };
 ```
 
-Every time the user logs in to their GitHub account on the Utterances site, this component will keep the token in the redirected URL into localStorage. The problem with this is the Utterances don't provide anyway to logged out of the account from the site.
+Every time the user logs in to their GitHub account on the Utterances site, this component will keep the token in the redirected URL into localStorage. The problem with this is the Utterances don't provide any way to log out of the account from the site.
 
-Also, based on my reading on the Utterances project code, the token has 1 year expiry date.
+Also, based on my reading on the Utterances project code, the token has a 1-year expiry date.
 
-So, I added an option to keep the token in SessionStorage instead. LocalStorage will survive when the site or tab closes but SessionStorage will auto-delete them. This is a better aproach in my opinion.
+So, I added an option to keep the token in SessionStorage instead. LocalStorage will survive when the site or tab closes but SessionStorage will auto-delete them. This is a better approach in my opinion.
 
 The component will still set the storage to LocalStorage by default.
 
-> You should create a way for the user to clear Login data like a button. Like this.
+> Recommended to create a way for the user to clear Login data like a button. Like this.
 
 ```jsx
 import { Utterances } from 'react-utterances-client';
@@ -185,7 +185,7 @@ import { Utterances } from 'react-utterances-client';
 const Comments = () => {
  return (
         <> 
-           <button onClick={()=>sessionStorage.removeItem('utterances-session')}>
+           <button onClick={()=>localStorage.removeItem('utterances-session')}>
               Clear Login Data
            </button>
            <Utterances
@@ -288,6 +288,7 @@ Types of `Utterances` component props are also accessible via `UtteranceProps` i
 |loading|lazy or eager|`lazy`|Indicates when the browser should load this component. In this case, you want to modify the default behaviour for some reason.|
 |onLoad|(e) => void|`undefined`|Event callback when this component finish loading.|
 |onError|(e) => void|`undefined`|Event callback when this component throw errors.|
+|tokenStorage|`local` or `session`|`local`|Browser Storage that you want to use to keep your token. `session` to sessionStorage, `local` to LocalStorage.|
 |placeholder|boolean or React.ReactElement|`false`|Placeholder when this component is still loading. You can disable, or enable it with a default placeholder or provide your own placeholder component. This also will force loading prop to eager regardless what you set.|
 |containerClassName|string|`undefined`|ClassName of the Utterances iframe container.|
 |iframeClassName|string|`undefined`|ClassName of the Utterances iframe.|
@@ -329,3 +330,5 @@ Some of the functions in this library are based on the original [client.ts](http
 The types of the project are taken and modified from [TomokiMiyauci/utterance-component](https://github.com/TomokiMiyauci/utterances-component) repository that is licensed under the [MIT license](https://github.com/TomokiMiyauci/utterances-component/blob/main/LICENSE).
 
 Icon SVG that is used as the demo icon, 🔮 is a part of the [googlefonts](https://github.com/googlefonts/noto-emoji)[/noto-emoji](https://github.com/googlefonts/noto-emoji)(<https://github.com/googlefonts/noto-emoji>) project that is licensed under the [Apache License 2.0](https://github.com/googlefonts/noto-emoji/blob/main/LICENSE).
+
+The dev-only hook, `useUtterancesSession` is based on `useLocalStorage` and `useSessionStorage` hooks from @uidotdev/usehooks project that is licensed under the [MIT license](https://github.com/uidotdev/usehooks/blob/main/LICENSE).
