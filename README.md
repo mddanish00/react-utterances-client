@@ -3,7 +3,7 @@
 Another React component for using [Utterances](https://utteranc.es/) 🔮 on your website!
 
 ![GitHub License](https://img.shields.io/github/license/mddanish00/react-utterances-client?style=flat-square)
-![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/mddanish00/react-utterances-client?style=flat-square)
+![npm](https://img.shields.io/npm/v/react-utterances-client?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
 
