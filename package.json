@@ -58,7 +58,7 @@
     "size-limit": "^11.1.4",
     "typescript": "^5.5.4",
     "vite": "^5.4.0",
-    "vite-plugin-dts": "^3.9.1"
+    "vite-plugin-dts": "^4.0.2"
   },
   "size-limit": [
     {
