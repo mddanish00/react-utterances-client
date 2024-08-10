@@ -27,9 +27,7 @@ export default defineConfig({
 		dts({
 			rollupTypes: true,
 			afterBuild: () => {
-				fs.copyFileSync('dist/index.d.cts.d.ts', 'dist/index.d.cts');
-				fs.copyFileSync('dist/index.d.cts.d.ts', 'dist/index.d.ts');
-				fs.rmSync('dist/index.d.cts.d.ts');
+				fs.copyFileSync('dist/index.d.cts', 'dist/index.d.ts');
 			},
 		}),
 	],
