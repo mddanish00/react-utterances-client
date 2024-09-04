@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+          cache: 'npm'
+          check-latest: true
 
       - name: Update npm latest
         run: |
@@ -28,7 +30,7 @@ jobs:
         run: |
           echo node version "$(node -v)"
           echo npm version "$(npm --version)"
-          npm install
+          npm ci
           npm run build:demo
 
       - name: Deploy 🚀
