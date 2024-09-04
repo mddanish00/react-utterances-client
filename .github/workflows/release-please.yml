@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: 'npm'
+          check-latest: true
         if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
