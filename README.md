@@ -6,7 +6,8 @@ Another React component for using [Utterances](https://utteranc.es/) 🔮 on you
 ![npm](https://img.shields.io/npm/v/react-utterances-client?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-utterances-client%40latest?style=flat-square)
 [![Buy Me A Coffee](https://img.shields.io/badge/mddanish00-black?style=flat-square&logo=buymeacoffee&logoColor=black&label=Buy%20Me%20A%20Coffee&labelColor=%23FFDD00)](https://www.buymeacoffee.com/mddanish00)
-
+[![Ko-fi](https://img.shields.io/badge/mddanish00-%2372A4F2?style=flat-square&logo=kofi&label=Ko-fi&labelColor=%23F4EFE7)](https://ko-fi.com/mddanish00)
+  
 [Comments Demo](https://mddanish00.github.io/react-utterances-client/)
 
 ## Features
@@ -300,6 +301,8 @@ Types of `Utterances` component props are also accessible via `UtteranceProps` i
 Star this project if it is useful for you.
 
 Also, consider buying me a coffee!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mddanish00)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mddanish00)
 
