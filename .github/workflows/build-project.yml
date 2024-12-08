@@ -1,0 +1,30 @@
+name: Build Project
+on:
+  workflow_call:
+    inputs:
+      NPM_TOKEN:
+        required: true
+        type: string
+jobs:
+  build-npm-package-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Set Node Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+          check-latest: true
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish to NPM
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ inputs.NPM_TOKEN }}

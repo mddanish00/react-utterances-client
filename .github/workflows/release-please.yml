@@ -6,7 +6,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
 
 name: release-please
 
@@ -19,20 +18,8 @@ jobs:
         with:
           release-type: node
           token: ${{ secrets.ACTION_SECRET }}
-      - uses: actions/checkout@v4
-        if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v4
+
+      - uses: ./.github/workflows/build-project.yml
         with:
-          node-version: 'lts/*'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
-          check-latest: true
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm install -g npm@latest
-        if: ${{ steps.release.outputs.release_created }}		
-      - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
