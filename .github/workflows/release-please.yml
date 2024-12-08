@@ -19,6 +19,9 @@ jobs:
           release-type: node
           token: ${{ secrets.ACTION_SECRET }}
 
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
       - uses: ./.github/workflows/build-project.yml
         with:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
