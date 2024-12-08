@@ -1,6 +1,6 @@
 {
 	"name": "react-utterances-client",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Another React component for using Utterances 🔮 on your website!",
 	"type": "module",
 	"main": "./dist/index.cjs",

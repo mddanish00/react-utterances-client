@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/mddanish00/react-utterances-client/compare/v1.2.0...v1.2.1) (2024-12-08)
+
+
+### Miscellaneous Chores
+
+* release 1.2.1 ([1998432](https://github.com/mddanish00/react-utterances-client/commit/19984321bca219c7ede64963bcf6c1435cda96eb))
+
 ## [1.2.0](https://github.com/mddanish00/react-utterances-client/compare/v1.1.1...v1.2.0) (2024-12-08)
 
 
