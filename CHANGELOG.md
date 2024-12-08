@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/mddanish00/react-utterances-client/compare/v1.1.1...v1.2.0) (2024-12-08)
+
+
+### Features
+
+* :bricks: add React 19 support ([b3d2e01](https://github.com/mddanish00/react-utterances-client/commit/b3d2e01b284834e223fa46d5118a176a636482da))
+* :bricks: migrate to vite v6 ([b3d2e01](https://github.com/mddanish00/react-utterances-client/commit/b3d2e01b284834e223fa46d5118a176a636482da))
+* :wrench: migrate eslint .eslintrc.cjs to flat config ([b3d2e01](https://github.com/mddanish00/react-utterances-client/commit/b3d2e01b284834e223fa46d5118a176a636482da))
+
 ## [1.1.1](https://github.com/mddanish00/react-utterances-client/compare/v1.1.0...v1.1.1) (2023-12-03)
 
 
