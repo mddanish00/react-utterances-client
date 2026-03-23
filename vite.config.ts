@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import fs from 'fs';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import dts from 'unplugin-dts/vite';
 
 // https://vitejs.dev/config/
@@ -13,12 +13,14 @@ export default defineConfig({
 			formats: ['es', 'cjs'],
 			fileName: 'index',
 		},
-		rollupOptions: {
+		rolldownOptions: {
 			external: ['react', 'react/jsx-runtime', 'classcat', 'use-sync-external-store/shim'],
 			output: {
 				banner: "'use client';",
-				interop: 'auto',
-				inlineDynamicImports: true,
+				codeSplitting: false,
+			},
+			checks: {
+				pluginTimings: false,
 			},
 		},
 	},
