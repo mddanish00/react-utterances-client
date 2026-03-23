@@ -1,0 +1,36 @@
+name: Force Deploy Demo to Github Pages
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+jobs:
+  force-build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v6
+
+      - name: Set Node Environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+          check-latest: true
+
+      - name: Update npm latest
+        run: |
+          npm install -g npm@latest
+
+      - name: Install and Build 🔧
+        env:
+          CI: false
+        run: |
+          npm install
+          npm run build:demo
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
