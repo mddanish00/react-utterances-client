@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/mddanish00/react-utterances-client/compare/v1.2.0...v1.3.0) (2026-03-23)
+
+
+### Features
+
+* change to use vite-plugin-react instead swc version ([653d495](https://github.com/mddanish00/react-utterances-client/commit/653d49500d4c8bf52b265da144c082e4b506d2f6))
+* migrate to vite v8 ([653d495](https://github.com/mddanish00/react-utterances-client/commit/653d49500d4c8bf52b265da144c082e4b506d2f6))
+
 ## [1.2.0](https://github.com/mddanish00/react-utterances-client/compare/v1.1.1...v1.2.0) (2024-12-08)
 
 
